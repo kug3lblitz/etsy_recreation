@@ -1,23 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Etsy Data</title>
+	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-	<h1>Just Some Beers</h1>
 
-	<ul class="beers-list">
-	</ul>
+	<header>
+		<span class="etsy-logo">Etsy</span>
+		<div class="sort-menu">
+			<span class="sort-by">Sort By:</span>
+			<select class="sort-dropdown">
+				<option value="highest" selected="highest">Highest Price</option>
+				<option value="lowest" selected="lowest">Lowest Price</option>
+			</select>
+		</div>
+	</header>
 
-	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<div class="data"></div>
 
-	<script type="text/template" data-template-name="beer-item">
-		<li><% name %> by <% brewery %></li>
-	</script>
+	<script src="scripts/bower_components/jquery/dist/jquery.js"></script>
+	<script src="scripts/bower_components/underscore/underscore.js"></script>
 
-	<script type="text/javascript" src="data.js"></script>
-	<script type="text/javascript" src="main.js"></script>
-</body>
-</html>
+
+	<script type="text/template" data-template-name="lego-item">
+		<div class="container">
+			<a href="<% titleURL %>"><img class="item-image" src="<% image %>"/><a>
+				<a class="item-title" href="<% titleURL %>">
+					<p> <% title %> </p>
+				</a>
+				<div class="shop-info">
+					<a class="item-shop" href="">
+						<p> <% shopName %> </p>
+					</a>
+					<p class="item-price"> <% price %> <% currency %> </p>
+				</div>
+			</div>
+
+		</script>
+
+		<script type="text/javascript" src="scripts/data.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
+	</body>
+	</html>
