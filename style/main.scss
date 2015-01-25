@@ -1,0 +1,29 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+* {
+  box-sizing: border box;
+}
+
+/* colors */
+
+$hdrbg: white;
+$searchfieldbg: #fbfbfa;
+$searchbuttoncolor: #4fa7c5;
+$mainbodycolor: #f5f5f1;
+
+/* Structure */
+
+.mainhdr {
+  background-color: $hdrbg;
+  max-width: 100%;
+}
+
+.maincontainer {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  font-family: 'arial', 'Helvetica', 'sans-serif';
+}
+
+

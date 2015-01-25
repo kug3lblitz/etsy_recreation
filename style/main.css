@@ -1,0 +1,26 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+* {
+  box-sizing: border box; }
+
+/* colors */
+/* Structure */
+.mainhdr {
+  background-color: white;
+  max-width: 100%; }
+
+.maincontainer {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  font-family: 'arial', 'Helvetica', 'sans-serif'; }
+
+/*# sourceMappingURL=main.css.map */
