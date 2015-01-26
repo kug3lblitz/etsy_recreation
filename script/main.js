@@ -1,58 +1,63 @@
-(function(){
+(function() {
 	'use strict';
 
-	var legos = rawLegoData.results;
+	var results = rawData.results;
 
-	$(document).ready(function(){
+	$(document).ready(function() {
 
-		var $output = $('.data');
+		//
+		// links html element div with .results-list class
+		//
+		var $list = $('.results-list');
 
+		//
+		// Sorted by price
+		//
 
-		$(".sort-dropdown").change(function(sort) {
-			if ($(".sort-dropdown option:selected").text() == "Lowest Price") {
-				legos = _.sortBy(legos, function(lego) {
-					return +lego.price;
-				});
-			} else if ($(".sort-dropdown option:selected").text() == "Highest Price") {
-				legos = _.sortBy(legos, function(lego) {
-					return +lego.price;
-				}).reverse();
+		$(".dropdown").change(function(sortStuff) {
+			if ($(".dropdown option:selected").text() == "Lowest Price") {
+				results = _.sortBy(results, "price");
+			} else if ($(".dropdown option:selected").text() == "Highest Price") {
+				results = _.sortBy(results, "price").reverse();
+			} else if ($(".dropdown option:selected").text() == "Relevance") {
+				results = rawCharlestonData.results;
 			}
-			changeOrder(legos);
+			renderListings(results);
 		});
 
-		function changeOrder(data) {
-			$output.empty();
-			data.forEach(function(lego) {
-				var legoInfo = renderTemplate('lego-item', {
-					image: lego.Images[0].url_170x135,
-					title: lego.title,
-					titleURL: lego.url,
-					shopName: lego.Shop.shop_name,
-					price: lego.price,
-					currency: lego.currency_code
+		function renderListings(data) {
+			$list.empty();
+			data.forEach(function(result) {
+				var resultText = renderTemplate('results-item', {
+					title: result.title,
+					cost: result.price,
+					shop: result.Shop.shop_name,
+					image: result.Images[1].url_170x135,
+					url: result.url,
+					currency: result.Shop.currency_code
 				});
-				$output.append(legoInfo);
+				$list.append(resultText);
 			});
 		}
 
-		legos.forEach(function(lego){
-			var legoInfo = renderTemplate('lego-item', {
-				image: lego.Images[0].url_170x135,
-				title: lego.title,
-				titleURL: lego.url,
-				shopName: lego.Shop.shop_name,
-				price: lego.price,
-				currency: lego.currency_code
+		//
+		// Default / Relevance View
+		//
+
+		results.forEach(function(result) {
+			var resultText = renderTemplate('results-item', {
+				title: result.title,
+				cost: result.price,
+				shop: result.Shop.shop_name,
+				image: result.Images[1].url_170x135,
+				url: result.url,
+				currency: result.Shop.currency_code
 			});
-			$output.append(legoInfo);
+			$list.append(resultText);
 		});
 
 	});
 
-	/*
-	Templete function
-	*/
 	function renderTemplate(name, data) {
 		var $template = $('[data-template-name=' + name + ']').text();
 		$.each(data, function(prop, value) {

@@ -8,19 +8,114 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-* {
-  box-sizing: border box; }
+body {
+  margin: 0;
+  background-color: #f5f5f1;
+  font-family: Arial; }
 
-/* colors */
-/* Structure */
-.mainhdr {
-  background-color: white;
-  max-width: 100%; }
+header {
+  position: relative;
+  margin-bottom: 50px;
+  background-color: #fff;
+  width: 100%;
+  height: 80px; }
+  header .etsy-heading {
+    position: absolute;
+    top: 10px;
+    color: #d4562a;
+    font-size: 50px; }
 
-.maincontainer {
-  margin: 0 auto;
-  padding: 0;
-  width: 80%;
-  font-family: 'arial', 'Helvetica', 'sans-serif'; }
+.header-container {
+  position: relative;
+  left: 10%;
+  width: 300px;
+  height: 75px; }
+
+.results-list {
+  max-width: 730px;
+  margin-left: auto;
+  margin-right: auto; }
+  .results-list::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.listing {
+  float: left;
+  display: block;
+  margin-right: 3.57869%;
+  width: 30.94754%;
+  position: relative;
+  margin-bottom: 18px;
+  border-radius: 3px;
+  background: #fff;
+  padding: 4px;
+  width: 224px;
+  height: 220px; }
+  .listing:last-child {
+    margin-right: 0; }
+  .listing:nth-child(3n) {
+    margin-right: 0; }
+  .listing:nth-child(3n+1) {
+    clear: left; }
+
+p {
+  transition: transform .5s;
+  margin: 0 0 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+  font-size: 12px; }
+
+.image img {
+  transition: all .5s;
+  width: 100%; }
+
+.cost {
+  position: absolute;
+  right: 9px;
+  color: #74bf40;
+  font-size: 12px; }
+
+.shop {
+  position: absolute;
+  left: 4%;
+  color: #b2b2b2;
+  font-size: 12px; }
+
+.dropdown {
+  position: absolute;
+  top: 29px;
+  right: 10%; }
+
+input {
+  position: absolute;
+  top: 26%;
+  left: 36%;
+  border: 1px solid #b0b0b0;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 12px; }
+  input:focus {
+    outline: none;
+    border: 1px solid #63b5cf; }
+
+@media screen and (max-width: 725px) {
+  .listing {
+    float: left;
+    display: block;
+    margin-right: 3.57869%;
+    width: 100%; }
+    .listing:last-child {
+      margin-right: 0; }
+
+  .results-list {
+    max-width: 224px; } }
+.listing:hover p {
+  transform: translate(0, 6px); }
+.listing:hover .image img {
+  transform: scale3d(1.1, 1.1, 1);
+  border-radius: 4px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,29 +1,119 @@
 @import 'bourbon/bourbon';
+$gutter: em(48px);
 @import 'neat/neat';
 
-* {
-  box-sizing: border box;
+body {
+  margin: 0;
+  background-color: #f5f5f1;
+  font-family: Arial;
 }
 
-/* colors */
+header {
+  position: relative;
+  margin-bottom: 50px;
+  background-color: #fff;
+  width: 100%;
+  height: 80px;
 
-$hdrbg: white;
-$searchfieldbg: #fbfbfa;
-$searchbuttoncolor: #4fa7c5;
-$mainbodycolor: #f5f5f1;
+  .etsy-heading {
 
-/* Structure */
-
-.mainhdr {
-  background-color: $hdrbg;
-  max-width: 100%;
+    position: absolute;
+    top: 10px;
+    color: #d4562a;
+    font-size: 50px;
+  }
 }
 
-.maincontainer {
-  margin: 0 auto;
-  padding: 0;
-  width: 80%;
-  font-family: 'arial', 'Helvetica', 'sans-serif';
+.header-container {
+  position: relative;
+  left: 10%;
+  width: 300px;
+  height: 75px;
 }
 
+.results-list {
+  @include outer-container(730px);
+}
 
+.listing {
+  @include span-columns(4);
+  @include omega(3n);
+  position: relative;
+  margin-bottom: 18px;
+  border-radius: 3px;
+  background: #fff;
+  padding: 4px;
+  width: 224px;
+  height: 220px;
+}
+
+p {
+  transition: transform .5s;
+  margin: 0 0 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+  font-size: 12px;
+}
+
+.image img {
+  transition: all .5s;
+  width: 100%;
+}
+
+.cost {
+  position: absolute;
+  right: 9px;
+  color: #74bf40;
+  font-size: 12px;
+}
+
+.shop {
+  position: absolute;
+  left: 4%;
+  color: #b2b2b2;
+  font-size: 12px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 29px;
+  right: 10%;
+}
+
+input {
+  position: absolute;
+  top: 26%;
+  left: 36%;
+  border: 1px solid #b0b0b0;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 12px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #63b5cf;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .listing {
+    @include span-columns(12);
+  }
+
+  .results-list {
+    max-width: 224px;
+  }
+}
+
+.listing:hover {
+  p {
+    transform: translate(0, 6px);
+  }
+
+  .image img {
+    transform: scale3d(1.1, 1.1, 1);
+    border-radius: 4px;
+  }
+}

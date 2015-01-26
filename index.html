@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Etsy Data</title>
+	<title>Etsy</title>
 	<link rel="stylesheet" href="styles/main.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
-<body>
 
+<body>
 	<header>
-		<span class="etsy-logo">Etsy</span>
-		<div class="sort-menu">
-			<span class="sort-by">Sort By:</span>
-			<select class="sort-dropdown">
-				<option value="highest" selected="highest">Highest Price</option>
-				<option value="lowest" selected="lowest">Lowest Price</option>
-			</select>
+		<div class="header-container">
+			<span class="etsy-heading">Etsy</span>
+			<input value="Pocketwatches" />
 		</div>
+		<select class="dropdown">
+			<option>Relevance</option>
+			<option>Highest Price</option>
+			<option>Lowest Price</option>
+		</select>
+
 	</header>
 
-	<div class="data"></div>
+	<script src="script/bower_components/jquery/dist/jquery.js"></script>
+	<script src="script/bower_components/underscore/underscore.js"></script>
 
-	<script src="scripts/bower_components/jquery/dist/jquery.js"></script>
-	<script src="scripts/bower_components/underscore/underscore.js"></script>
+	<div class="results-list">
+	</div>
 
-
-	<script type="text/template" data-template-name="pocketwatch-listing">
-		<div class="container">
-			<a href="<% titleURL %>"><img class="item-image" src="<% image %>"/><a>
-				<a class="item-title" href="<% titleURL %>">
-					<p> <% title %> </p>
+	<script type="text/template" data-template-name="results-item">
+		<span class="listing">
+			<span class="image">
+				<a href="<% url %>">
+					<img src="<% image %>" />
 				</a>
-				<div class="shop-info">
-					<a class="item-shop" href="">
-						<p> <% shopName %> </p>
-					</a>
-					<p class="item-price"> <% price %> <% currency %> </p>
-				</div>
-			</div>
+			</span>
+			<p>
+				<% title %>
+			</p>
+			<span class="shop">
+				<% shop %>
+			</span>
+			<span class="cost">
+				<% cost %>
+				<% currency %>
+			</span>
+		</span>
+	</script>
 
-		</script>
+	<script type="text/javascript" src="script/data.js"></script>
+	<script type="text/javascript" src="script/main.js"></script>
 
-		<script type="text/javascript" src="scripts/data.js"></script>
-		<script type="text/javascript" src="scripts/main.js"></script>
-	</body>
-	</html>
+</body>
+</html>
